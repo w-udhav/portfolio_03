@@ -2,31 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-@media (prefers-color-scheme: light) {
+@layer base {
+  /* Dark Mode colors */
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --color-text-secondary: rgb(202, 203, 205);
+    --color-background: rgb(248, 250, 252);
+    --section-heading: rgb(12, 19, 27);
+    --color-text: rgba(12, 19, 27, .6);
+    --color-placeholder: rgba(11, 19, 27, .3);
+    --overlay-background: rgba(12, 19, 27, .1);
+    --card-background-color-1: rgb(255, 255, 255);
+    --card-background-color-2: rgb(251, 253, 255);
   }
-  a:hover {
-    color: #747bff;
+
+  [data-theme="dark"] {
+    --color-text-secondary: rgb(79, 79, 79);
+    --color-background: rgb(0, 0, 0);
+    --section-heading: rgb(240, 240, 240);
+    --color-text: rgba(240, 240, 240, .6);
+    --color-placeholder: rgba(240, 240, 240, .3);
+    --overlay-background: rgba(240, 240, 240, .1);
+    --card-background-color-1: rgba(24, 24, 24, .2);
+    --card-background-color-2: rgba(24, 24, 24, .6);
   }
-  button {
-    background-color: #f9f9f9;
+
+  :root {
+    color-scheme: light dark;
+    background-color: var(--color-background);
+    font-family: 'Inter', sans-serif;
+  }
+
+  [data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  h1 {
+    @apply text-2xl font-semibold text-section-heading;
+  }
+
+  h2 {
+    @apply text-[16px] font-bold text-section-heading;
+  }
+
+  p {
+    @apply text-sm text-text;
   }
 }

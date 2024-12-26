@@ -1,10 +1,13 @@
-import { Icon } from "@iconify/react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Projects from "./pages/Projects";
 
 function App() {
   return (
-    <>
-      <Icon icon="f7:hammer-fill" className="text-4xl" />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/projects" element={<Projects />} />
+    </Routes>
   );
 }
 
